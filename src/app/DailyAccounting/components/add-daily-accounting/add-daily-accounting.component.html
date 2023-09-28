@@ -1,0 +1,187 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Date d'Opération</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="tutorial.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Déscription</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="tutorial.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="recipeToday">Recette Aujourd'hui</label>
+        <input
+
+          class="form-control"
+          id="recipeToday"
+          required
+          [(ngModel)]="tutorial.recipeToday"
+          name="description"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="balancePreviousMonth">Solde du mois Prcédent</label>
+        <input
+
+          class="form-control"
+          id="balancePreviousMonth"
+          required
+          [(ngModel)]="tutorial.balancePreviousMonth"
+          name="balancePreviousMonth"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="operationTreasuryAnterior">Opérations du Trésor Antérieurs </label>
+        <input
+          class="form-control"
+          id="operationTreasuryAnterior"
+          required
+          [(ngModel)]="tutorial.operationTreasuryAnterior"
+          name="operationTreasuryAnterior"
+
+        />
+      </div>
+      <div class="form-group">
+        <label for="operationTreasuryToday">Opérations du Trésor d'Aujourd'hui</label>
+        <input
+
+          class="form-control"
+          id="operationTreasuryToday"
+          required
+          [(ngModel)]="tutorial.operationTreasuryToday"
+          name="operationTreasuryToday"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="operationPreviousRegulation">Opérations de Réglement Antérieurs </label>
+        <input
+
+          class="form-control"
+          id="operationPreviousRegulation"
+          required
+          [(ngModel)]="tutorial.operationPreviousRegulation"
+          name="operationPreviousRegulation"
+
+        />
+      </div>
+      <div class="form-group">
+        <label for="operationRegulationToday">Opérations de Réglement d'Ajourd'hui</label>
+        <input
+
+          class="form-control"
+          id="operationRegulationToday"
+          required
+          [(ngModel)]="tutorial.operationRegulationToday"
+          name="operationRegulationToday"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="postCurrentAccount">Compte Courant Postal</label>
+        <input
+
+          class="form-control"
+          id="postCurrentAccount"
+          required
+          [(ngModel)]="tutorial.postCurrentAccount"
+          name="postCurrentAccount"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="creditExpected">Crédit Attendu</label>
+        <input
+
+          class="form-control"
+          id="creditExpected"
+          required
+          [(ngModel)]="tutorial.creditExpected"
+          name="creditExpected"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="rateExpected">débit Attendu</label>
+        <input
+
+          class="form-control"
+          id="rateExpected"
+          required
+          [(ngModel)]="tutorial.rateExpected"
+          name="rateExpected"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="otherValues">Autres Valeurs</label>
+        <input
+
+          class="form-control"
+          id="otherValues"
+          required
+          [(ngModel)]="tutorial.otherValues"
+          name="otherValues"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="statesRepartition">États de Répartions</label>
+        <input
+
+          class="form-control"
+          id="statesRepartition"
+          required
+          [(ngModel)]="tutorial.statesRepartition"
+          name="statesRepartition"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="moneySpecies">Argents en Éspèce</label>
+        <input
+
+          class="form-control"
+          id="moneySpecies"
+          required
+          [(ngModel)]="tutorial.moneySpecies"
+          name="moneySpecies"
+
+        />
+      </div>
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Opération de Caisse est enregistrée avec succés!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Ajouter</button>
+    </div>
+  </div>
+</div>
+

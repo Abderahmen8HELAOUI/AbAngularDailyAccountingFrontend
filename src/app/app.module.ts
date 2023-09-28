@@ -9,12 +9,20 @@ import { DailyAccountingListComponent } from './DailyAccounting/components/daily
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import {HttpClientModule} from "@angular/common/http";
+import { AddDailyAccountingComponent } from './DailyAccounting/components/add-daily-accounting/add-daily-accounting.component';
+import { DailyAccountingDetailsComponent } from './DailyAccounting/components/daily-accounting-details/daily-accounting-details.component';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ConsultationOperationDetailsComponent } from './DailyAccounting/components/consultation-operation-details/consultation-operation-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    DailyAccountingListComponent
+    DailyAccountingListComponent,
+     AddDailyAccountingComponent,
+     DailyAccountingDetailsComponent,
+     ConsultationOperationDetailsComponent
 
   ],
   imports: [
@@ -24,7 +32,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
 
   ],
   providers: [],

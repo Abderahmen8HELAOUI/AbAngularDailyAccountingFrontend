@@ -1,16 +1,40 @@
 export class DailyAccounting {
   id?: any;
   title?: string;
-  // recetteAujourdhui?: number;
-  // soldeMoisAnterieur?: number;
-  // operationTresorAnterieur?: number;
-  // operationTresorAujourdhui?: number;
-  // operationReglementAnterieur?: number;
-  // operationReglementAujourdhui?: number;
-  // compteCourantPostal?: number;
-  // creditAttendu?: number;
-  // debitAttendu?: number;
-  // autresValeurs?: number;
-  // etatsRepartitions?: number;
-  // argentEspece?: number;
+  description?: string;
+  recipeToday?: number;
+  balancePreviousMonth?: number;
+
+  totalRecipeToday?: number;
+
+  operationTreasuryAnterior?: number;
+  operationTreasuryToday?: number;
+
+  totalOperationTreasury?: number;
+
+  operationPreviousRegulation?: number;
+  operationRegulationToday?: number;
+
+  totalOperationRegulation?: number;
+
+  totalExpenses?: number;
+
+  dalyAccountBalance?: number;
+
+  postCurrentAccount?: number;
+  creditExpected?: number;
+  rateExpected?: number;
+
+  finalPostalAccount?: number;
+
+  otherValues?: number;
+  statesRepartition?: number;
+
+  totalCash?: number;
+
+  moneySpecies?: number;
+
+  moneyInCoinsInCash?: number;
+
+  published?: boolean;
 }

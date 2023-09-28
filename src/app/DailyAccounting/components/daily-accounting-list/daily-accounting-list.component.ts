@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DailyAccounting} from "../../models/daily-accounting.model";
 import {DailyAccountingService} from "../../services/daily-accounting.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-daily-accounting-list',
@@ -10,8 +11,8 @@ import {DailyAccountingService} from "../../services/daily-accounting.service";
 })
 export class DailyAccountingListComponent implements OnInit {
 
-  dailyAccounting: DailyAccounting[] = [];
-  currentDailyAccounting: DailyAccounting = {};
+  tutorials: DailyAccounting[] = [];
+  currentTutorial: DailyAccounting = {};
   currentIndex = -1;
   title = '';
 
@@ -20,10 +21,11 @@ export class DailyAccountingListComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  constructor(private dailyAccountingService: DailyAccountingService) { }
+  constructor(private tutorialService: DailyAccountingService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   getRequestParams(searchTitle: string, page: number, pageSize: number): any {
@@ -44,14 +46,14 @@ export class DailyAccountingListComponent implements OnInit {
     return params;
   }
 
-  retrieveDailyAccounting(): void {
+  retrieveTutorials(): void {
     const params = this.getRequestParams(this.title, this.page, this.pageSize);
 
-    this.dailyAccountingService.getAll(params)
+    this.tutorialService.getAll(params)
       .subscribe({
         next: (data) => {
-          const { dailyAccounting, totalItems } = data;
-          this.dailyAccounting = dailyAccounting;
+          const { tutorials, totalItems } = data;
+          this.tutorials = tutorials;
           this.count = totalItems;
           console.log(data);
         },
@@ -63,43 +65,46 @@ export class DailyAccountingListComponent implements OnInit {
 
   handlePageChange(event: number): void {
     this.page = event;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   handlePageSizeChange(event: any): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   refreshList(): void {
-    this.retrieveDailyAccounting();
-    this.currentDailyAccounting = {};
+    this.retrieveTutorials();
+    this.currentTutorial = {};
     this.currentIndex = -1;
   }
 
-  setActiveDailyAccounting(dailyAccounting: DailyAccounting, index: number): void {
-    this.currentDailyAccounting = dailyAccounting;
+  setActiveTutorial(tutorial: DailyAccounting, index: number): void {
+    this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllDailyAccounting(): void {
-    this.dailyAccountingService.deleteAll()
-      .subscribe({
-        next: res => {
-          console.log(res);
-          this.refreshList();
-        },
-        error: err => {
-          console.log(err);
-        }
-      });
+  removeAllTutorials(): void {
+    if (confirm('Voulez vous vraiment supprmier toutes les Opérations ')) {
+      this.tutorialService.deleteAll()
+        .subscribe({
+          next: res => {
+            console.log(res);
+            this.refreshList();
+            this.toastr.error('Toutes les Opérations ont bien été supprimées', 'Application Livre de Caisse')
+          },
+          error: err => {
+            console.log(err);
+          }
+        });
+    }
 
   }
 
   searchTitle(): void {
     this.page = 1;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
 }
