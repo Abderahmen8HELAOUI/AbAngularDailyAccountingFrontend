@@ -10,8 +10,8 @@ import {DailyAccountingService} from "../../services/daily-accounting.service";
 })
 export class DailyAccountingListComponent implements OnInit {
 
-  dailyAccounting: DailyAccounting[] = [];
-  currentDailyAccounting: DailyAccounting = {};
+  tutorials: DailyAccounting[] = [];
+  currentTutorial: DailyAccounting = {};
   currentIndex = -1;
   title = '';
 
@@ -20,10 +20,10 @@ export class DailyAccountingListComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  constructor(private dailyAccountingService: DailyAccountingService) { }
+  constructor(private tutorialService: DailyAccountingService) { }
 
   ngOnInit(): void {
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   getRequestParams(searchTitle: string, page: number, pageSize: number): any {
@@ -44,14 +44,14 @@ export class DailyAccountingListComponent implements OnInit {
     return params;
   }
 
-  retrieveDailyAccounting(): void {
+  retrieveTutorials(): void {
     const params = this.getRequestParams(this.title, this.page, this.pageSize);
 
-    this.dailyAccountingService.getAll(params)
+    this.tutorialService.getAll(params)
       .subscribe({
         next: (data) => {
-          const { dailyAccounting, totalItems } = data;
-          this.dailyAccounting = dailyAccounting;
+          const { tutorials, totalItems } = data;
+          this.tutorials = tutorials;
           this.count = totalItems;
           console.log(data);
         },
@@ -63,28 +63,28 @@ export class DailyAccountingListComponent implements OnInit {
 
   handlePageChange(event: number): void {
     this.page = event;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   handlePageSizeChange(event: any): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
   refreshList(): void {
-    this.retrieveDailyAccounting();
-    this.currentDailyAccounting = {};
+    this.retrieveTutorials();
+    this.currentTutorial = {};
     this.currentIndex = -1;
   }
 
-  setActiveDailyAccounting(dailyAccounting: DailyAccounting, index: number): void {
-    this.currentDailyAccounting = dailyAccounting;
+  setActiveTutorial(tutorial: DailyAccounting, index: number): void {
+    this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllDailyAccounting(): void {
-    this.dailyAccountingService.deleteAll()
+  removeAllTutorials(): void {
+    this.tutorialService.deleteAll()
       .subscribe({
         next: res => {
           console.log(res);
@@ -99,7 +99,7 @@ export class DailyAccountingListComponent implements OnInit {
 
   searchTitle(): void {
     this.page = 1;
-    this.retrieveDailyAccounting();
+    this.retrieveTutorials();
   }
 
 }

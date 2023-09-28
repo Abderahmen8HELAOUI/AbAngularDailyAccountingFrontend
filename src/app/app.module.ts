@@ -9,12 +9,16 @@ import { DailyAccountingListComponent } from './DailyAccounting/components/daily
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import {HttpClientModule} from "@angular/common/http";
+import { AddDailyAccountingComponent } from './DailyAccounting/components/add-daily-accounting/add-daily-accounting.component';
+import { DailyAccountingDetailsComponent } from './DailyAccounting/components/daily-accounting-details/daily-accounting-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    DailyAccountingListComponent
+    DailyAccountingListComponent,
+     AddDailyAccountingComponent,
+     DailyAccountingDetailsComponent
 
   ],
   imports: [
