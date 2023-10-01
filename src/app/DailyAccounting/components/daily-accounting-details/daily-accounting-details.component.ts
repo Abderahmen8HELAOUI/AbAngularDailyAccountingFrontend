@@ -2,7 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DailyAccounting} from "../../models/daily-accounting.model";
 import {DailyAccountingService} from "../../services/daily-accounting.service";
 import {ActivatedRoute, Router} from "@angular/router";
+
 import {ToastrService} from "ngx-toastr";
+
+
 
 @Component({
   selector: 'app-daily-accounting-details',
@@ -19,6 +22,7 @@ export class DailyAccountingDetailsComponent implements OnInit {
     description: '',
     recipeToday: 0,
     balancePreviousMonth: 0,
+
 
     totalRecipeToday: 0,
 
@@ -59,18 +63,14 @@ export class DailyAccountingDetailsComponent implements OnInit {
     private tutorialService: DailyAccountingService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService) {
-
-  }
+    private toastr: ToastrService) {}
 
   ngOnInit(): void {
     if (!this.viewMode) {
       this.getTutorial(this.route.snapshot.params["id"]);
     }
 
-
   }
-
 
 
   getTutorial(id: string): void {
@@ -108,7 +108,7 @@ export class DailyAccountingDetailsComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.currentTutorial.published = status;
-
+          this.toastr.info('Opération mise à jour avec Succès', 'Application: Livre de Caisse');
         },
         error: (e) => console.error(e)
       });
@@ -122,6 +122,7 @@ export class DailyAccountingDetailsComponent implements OnInit {
           console.log(res);
           this.toastr.success('Opération mise à jour avec Succès', 'Application: Livre de Caisse');
           this.router.navigate(['/tutorials']);
+
         },
         error: (e) => console.error(e)
       });

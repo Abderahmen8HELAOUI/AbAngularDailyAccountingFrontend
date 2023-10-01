@@ -1,0 +1,59 @@
+<form (ngSubmit)="getRecetteTotal()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir la recette totale</button>
+</form>
+<p>Résultat de la recette totale : {{ recetteTotal  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+
+=========================
+<form (ngSubmit)="getOperationsTreasuryTotal()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le totale des Opérations de Trésors</button>
+</form>
+<p>Résultat de totale des Opérations de Trésor : {{ OperationsTreasuryTotal  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<form (ngSubmit)="getOperationsRegulationTotal()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le totale des Opérations de Règlements</button>
+</form>
+<p>Résultat de totale des Opérations de Réglement : {{ OperationsRegulationTotal  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<form (ngSubmit)="getTotalExpenses()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le totale des Dépenses</button>
+</form>
+<p>Résultat de totale des Dépenses : {{ TotalExpenses  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<form (ngSubmit)="getDalyAccountBalance()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le Solde du Compte </button>
+</form>
+<p>Résultat du Solde du Compte : {{ DalyAccountBalance  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<form (ngSubmit)="getFinalPostalAccount()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le Compte Courant Postal Final </button>
+</form>
+<p>Résultat du Solde du Compte : {{ FinalPostalAccount  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<form (ngSubmit)="getTotalCash()">
+  <label for="date">Sélectionnez une date :</label>
+  <input type="text" name="date" [(ngModel)]="date" required>
+  <button type="submit">Obtenir le Total Numéraire </button>
+</form>
+<p>Résultat du Tota Numéraire : {{ TotalCash  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+=========================
+<div>
+  <form (ngSubmit)="getMoneyInCoinsInCash()">
+    <label for="date">Sélectionnez une date :</label>
+    <input type="text" name="date" [(ngModel)]="date" required>
+    <button type="submit">Obtenir les Pices de Monnaie en Caisse </button>
+  </form>
+  <p>Résultat des Pices de Monnaie en Caisse : {{ MoneyInCoinsInCash  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+</div>
+
