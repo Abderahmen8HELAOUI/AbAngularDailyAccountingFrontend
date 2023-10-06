@@ -14,6 +14,13 @@ import { DailyAccountingDetailsComponent } from './DailyAccounting/components/da
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ConsultationOperationDetailsComponent } from './DailyAccounting/components/consultation-operation-details/consultation-operation-details.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratrComponent } from './board-moderatr/board-moderatr.component';
+import { BoardUserComponent } from './board-user/board-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { ConsultationOperationDetailsComponent } from './DailyAccounting/compone
     DailyAccountingListComponent,
      AddDailyAccountingComponent,
      DailyAccountingDetailsComponent,
-     ConsultationOperationDetailsComponent
+     ConsultationOperationDetailsComponent,
+     LoginComponent,
+     RegisterComponent,
+     HomeComponent,
+     ProfileComponent,
+     BoardAdminComponent,
+     BoardModeratrComponent,
+     BoardUserComponent
 
   ],
   imports: [

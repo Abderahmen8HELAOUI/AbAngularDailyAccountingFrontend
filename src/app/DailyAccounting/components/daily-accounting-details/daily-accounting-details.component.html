@@ -9,95 +9,149 @@
       {{ currentTutorial.description }}
     </div>
     <div>
-      <label><strong>Recette Ajourd'hui:</strong></label>
-      {{ currentTutorial.recipeToday |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
-    <div>
-      <label><strong>Solde Mois Antèrieur:</strong></label>
-      {{ currentTutorial.balancePreviousMonth |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      <table style="width:100%">
+        <tr>
+          <th><strong>Recette Ajourd'hui:</strong></th>
+          <td>{{ currentTutorial.recipeToday |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Total Recette:</strong></label>
-      {{ currentTutorial.totalRecipeToday |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+        </tr>
+        <tr>
+          <th><strong>Solde Mois Antèrieur:</strong></th>
+          <td>{{ currentTutorial.balancePreviousMonth |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Opéreation Trésorerie Anterieur:</strong></label>
-      {{ currentTutorial.operationTreasuryAnterior |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+        </tr>
+        <tr>
+          <th><strong>Total Recette:</strong></th>
+          <td>{{ currentTutorial.totalRecipeToday |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Opéreation Trésorerie Aujourd'hui:</strong></label>
-      {{ currentTutorial.operationTreasuryToday |  currency:"دت ":"symbol":'6.3-3'}}
+        </tr>
+      </table>
     </div>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th><label>total Dépenses:</label></th>
+        <td>{{ currentTutorial.totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Total Opéreations de Trésorerie:</strong></label>
-      {{ currentTutorial.totalOperationTreasury |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
 
-    <div>
-      <label><strong>Opéreation Réglement Aujourd'hui:</strong></label>
-      {{ currentTutorial.operationRegulationToday |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+    </table>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th><label>solde de journée:</label></th>
+        <td> {{ currentTutorial.dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>total Opéreations de Réglement:</strong></label>
-      {{ currentTutorial.totalOperationRegulation |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
 
+    </table>
+    <br>
     <div>
-      <label><strong>total Dépenses:</strong></label>
-      {{ currentTutorial.totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      <table style="width:100%">
+        <tr>
+          <th><label><strong>Opéreation Trésorerie Antérieur:</strong></label></th>
+          <td>{{ currentTutorial.operationTreasuryAnterior |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>solde de journée:</strong></label>
-      {{ currentTutorial.dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+        </tr>
+        <tr>
+          <th><label><strong>Opéreation Trésorerie Aujourd'hui:</strong></label></th>
+          <td>{{ currentTutorial.operationTreasuryToday |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Compte Courant Postal:</strong></label>
-      {{ currentTutorial.postCurrentAccount |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+        </tr>
+        <tr>
+          <th><strong>Total Opéreations de Trésorerie:</strong></th>
+          <td>{{ currentTutorial.totalOperationTreasury |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Crédit Attendu:</strong></label>
-      {{ currentTutorial.creditExpected |  currency:"دت ":"symbol":'6.3-3'}}
+        </tr>
+      </table>
     </div>
-    <div>
-      <label><strong>Débit Attendu:</strong></label>
-      {{ currentTutorial.rateExpected |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th><label><strong>Opéreation Réglement Antérieur:</strong></label></th>
+        <td>{{ currentTutorial.operationPreviousRegulation |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Solde Fina pour le CCP:</strong></label>
-      {{ currentTutorial.finalPostalAccount |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
+      <tr>
+        <th><label><strong>Opéreation Réglement Aujourd'hui:</strong></label></th>
+        <td>{{ currentTutorial.operationRegulationToday |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Autres Valeurs:</strong></label>
-      {{ currentTutorial.otherValues |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
-    <div>
-      <label><strong>Etats Répartitions:</strong></label>
-      {{ currentTutorial.statesRepartition |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
+      <tr>
+        <th><label><strong>total Opéreations de Réglement:</strong></label></th>
+        <td>{{ currentTutorial.totalOperationRegulation |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Tota Numéraire:</strong></label>
-      {{ currentTutorial.totalCash |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
+    </table>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th><label>total Dépenses:</label></th>
+        <td>{{ currentTutorial.totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
-    <div>
-      <label><strong>Argent Espéces:</strong></label>
-      {{ currentTutorial.moneySpecies |  currency:"دت ":"symbol":'6.3-3'}}
-    </div>
+      </tr>
 
-    <div>
-      <label><strong>Piéces de Monnaie en Caisse:</strong></label>
-      {{ currentTutorial.moneyInCoinsInCash |  currency:"دت ":"symbol":'6.3-3'}}
+    </table>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th>Argent Espéces:</th>
+        <td>{{ currentTutorial.moneySpecies |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Piéces de Monnaie en Caisse:</th>
+        <td>{{ currentTutorial.moneyInCoinsInCash |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Total Numéraire</th>
+        <td>{{ currentTutorial.totalCash |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+    </table>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th>Compte Courant Postal:</th>
+        <td>{{ currentTutorial.postCurrentAccount |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Crédit Attendu:</th>
+        <td>{{ currentTutorial.creditExpected |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Débit Attendu:</th>
+        <td>{{ currentTutorial.rateExpected |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Solde Final pour le CCP:</th>
+        <td>{{ currentTutorial.finalPostalAccount |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>Autres Valeurs:</th>
+        <td>{{ currentTutorial.otherValues |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+      <tr>
+        <th>États Répartitions:</th>
+        <td>{{ currentTutorial.statesRepartition |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+    </table>
+    <br>
+    <table style="width:100%">
+      <tr>
+        <th><label>solde de journée:</label></th>
+        <td> {{ currentTutorial.dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}</td>
+
+      </tr>
+
+    </table>
     </div>
 
     <div>
@@ -117,7 +171,6 @@
     <br />
     <p>SVP Sélectionnez une Opération...</p>
   </div>
-</div>
 
 <ng-template #editable>
   <div *ngIf="currentTutorial.id" class="edit-form">
