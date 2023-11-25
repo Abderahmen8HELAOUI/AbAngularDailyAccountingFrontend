@@ -9,7 +9,7 @@ import {DailyAccountingService} from "../../services/daily-accounting.service";
 export class ConsultationOperationDetailsComponent implements OnInit {
 
 
-  recetteTotal: any;
+  recipeTotal: any;
   date: any;
   OperationsTreasuryTotal: any;
   OperationsRegulationTotal:any;
@@ -25,9 +25,9 @@ export class ConsultationOperationDetailsComponent implements OnInit {
   }
 
 
-  getRecetteTotal() {
+  getRecipeTotal() {
     this.tutorialService.getRecetteTotal(this.date).subscribe(result => {
-      this.recetteTotal = result;
+      this.recipeTotal = result;
     });
 
   }

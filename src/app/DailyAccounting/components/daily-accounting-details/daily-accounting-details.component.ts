@@ -19,44 +19,35 @@ export class DailyAccountingDetailsComponent implements OnInit {
 
   @Input() currentTutorial: DailyAccounting = {
     title: '',
-    description: '',
     recipeToday: 0,
     balancePreviousMonth: 0,
-
-
-    totalRecipeToday: 0,
 
     operationTreasuryAnterior: 0,
     operationTreasuryToday: 0,
 
-    totalOperationTreasury:0,
-
     operationPreviousRegulation: 0,
     operationRegulationToday: 0,
-
-    totalOperationRegulation: 0,
-
-    totalExpenses: 0,
-
-    dalyAccountBalance: 0,
 
     postCurrentAccount: 0,
     creditExpected: 0,
     rateExpected: 0,
 
-    finalPostalAccount:0,
-
     otherValues: 0,
     statesRepartition: 0,
 
-    totalCash: 0,
-
     moneySpecies: 0,
 
-    moneyInCoinsInCash: 0,
-
-    published: false
   };
+
+  date: any;
+  totalRecipeToday: any;
+  totalOperationTreasury:any;
+  totalOperationRegulation:any;
+  totalExpenses:any;
+  dalyAccountBalance:any;
+  finalPostalAccount:any;
+  totalCash:any;
+  moneyInCoinsInCash:any;
 
 
   constructor(
@@ -69,9 +60,56 @@ export class DailyAccountingDetailsComponent implements OnInit {
     if (!this.viewMode) {
       this.getTutorial(this.route.snapshot.params["id"]);
     }
+   }
+
+  getRecipeTotal() {
+    this.tutorialService.getRecetteTotal(this.date).subscribe(result => {
+      this.totalRecipeToday = result;
+    });
 
   }
 
+    getOperationsTreasuryTotal(){
+        this.tutorialService.getTreasuryOperationsTotal(this.date).subscribe(result=>{
+            this.totalOperationTreasury = result
+        })
+    }
+
+    getOperationsRegulationTotal(){
+        this.tutorialService.getRegulationOperationsTotal(this.date).subscribe(result=>{
+            this.totalOperationRegulation = result
+        })
+    }
+
+    getTotalExpenses(){
+        this.tutorialService.getTotalExpenses(this.date).subscribe(result=>{
+            this.totalExpenses = result
+        })
+    }
+
+    getDalyAccountBalance(){
+        this.tutorialService.getDalyAccountBalance(this.date).subscribe(result=>{
+            this.dalyAccountBalance = result
+        })
+    }
+
+    getFinalPostalAccount(){
+        this.tutorialService.getFinalPostalAccount(this.date).subscribe(result=>{
+            this.finalPostalAccount = result
+        })
+    }
+
+    getTotalCash(){
+        this.tutorialService.getTotalCash(this.date).subscribe(result=>{
+            this.totalCash = result
+        })
+    }
+
+    getMoneyInCoinsInCash(){
+        this.tutorialService.getMoneyInCoinsInCash(this.date).subscribe(result=>{
+            this.moneyInCoinsInCash = result
+        })
+    }
 
   getTutorial(id: string): void {
     this.tutorialService.get(id)
@@ -87,7 +125,6 @@ export class DailyAccountingDetailsComponent implements OnInit {
   updatePublished(status: boolean): void {
     const data = {
       title: this.currentTutorial.title,
-      description: this.currentTutorial.description,
       recipeToday: this.currentTutorial.recipeToday,
       balancePreviousMonth: this.currentTutorial.balancePreviousMonth,
       operationTreasuryAnterior: this.currentTutorial.operationTreasuryAnterior,
@@ -107,7 +144,7 @@ export class DailyAccountingDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.currentTutorial.published = status;
+
           this.toastr.info('Opération mise à jour avec Succès', 'Application: Livre de Caisse');
         },
         error: (e) => console.error(e)

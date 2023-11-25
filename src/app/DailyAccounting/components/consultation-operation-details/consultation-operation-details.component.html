@@ -1,9 +1,9 @@
-<form (ngSubmit)="getRecetteTotal()">
+<form (ngSubmit)="getRecipeTotal()">
   <label for="date">Sélectionnez une date :</label>
   <input type="text" name="date" [(ngModel)]="date" required>
   <button type="submit">Obtenir la recette totale</button>
 </form>
-<p>Résultat de la recette totale : {{ recetteTotal  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
+<p>Résultat de la recette totale : {{ recipeTotal  |  currency:"دت ":"symbol":'6.3-3'  }}</p>
 
 =========================
 <form (ngSubmit)="getOperationsTreasuryTotal()">

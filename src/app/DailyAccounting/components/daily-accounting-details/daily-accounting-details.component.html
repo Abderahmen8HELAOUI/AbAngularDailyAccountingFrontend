@@ -4,10 +4,7 @@
     <div>
       <label><strong>Date Opération:</strong></label> {{ currentTutorial.title }}
     </div>
-    <div>
-      <label><strong>Déscription:</strong></label>
-      {{ currentTutorial.description }}
-    </div>
+
     <div>
       <table style="width:100%">
         <tr>
@@ -22,7 +19,12 @@
         </tr>
         <tr>
           <th><strong>Total Recette:</strong></th>
-          <td>{{ currentTutorial.totalRecipeToday |  currency:"دت ":"symbol":'6.3-3'}}</td>
+          <td><form (ngSubmit)="getRecipeTotal()">
+            <label for="date">Sélectionnez une date :</label>
+            <input type="text" name="date" [(ngModel)]="date" required>
+            <button type="submit">Obtenir la recette totale</button>
+          </form>
+            <p>Résultat de la recette totale : {{ totalRecipeToday  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
         </tr>
       </table>
@@ -31,7 +33,7 @@
     <table style="width:100%">
       <tr>
         <th><label>total Dépenses:</label></th>
-        <td>{{ currentTutorial.totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td>{{ totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
       </tr>
 
@@ -40,7 +42,7 @@
     <table style="width:100%">
       <tr>
         <th><label>solde de journée:</label></th>
-        <td> {{ currentTutorial.dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td> {{ dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}</td>
 
       </tr>
 
@@ -60,7 +62,12 @@
         </tr>
         <tr>
           <th><strong>Total Opéreations de Trésorerie:</strong></th>
-          <td>{{ currentTutorial.totalOperationTreasury |  currency:"دت ":"symbol":'6.3-3'}}</td>
+          <td><form (ngSubmit)="getOperationsTreasuryTotal()">
+            <label for="date">Sélectionnez une date :</label>
+            <input type="text" name="date" [(ngModel)]="date" required>
+            <button type="submit">Obtenir le totale des Opérations de Trésors</button>
+          </form>
+            <p>Résultat de totale des Opérations de Trésor : {{ totalOperationTreasury  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
         </tr>
       </table>
@@ -79,7 +86,12 @@
       </tr>
       <tr>
         <th><label><strong>total Opéreations de Réglement:</strong></label></th>
-        <td>{{ currentTutorial.totalOperationRegulation |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td><form (ngSubmit)="getOperationsRegulationTotal()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir le totale des Opérations de Règlements</button>
+        </form>
+          <p>Résultat de totale des Opérations de Réglement : {{ totalOperationRegulation  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
     </table>
@@ -87,7 +99,12 @@
     <table style="width:100%">
       <tr>
         <th><label>total Dépenses:</label></th>
-        <td>{{ currentTutorial.totalExpenses |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td><form (ngSubmit)="getTotalExpenses()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir le totale des Dépenses</button>
+        </form>
+          <p>Résultat de totale des Dépenses : {{ totalExpenses  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
 
@@ -101,12 +118,22 @@
       </tr>
       <tr>
         <th>Piéces de Monnaie en Caisse:</th>
-        <td>{{ currentTutorial.moneyInCoinsInCash |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td><form (ngSubmit)="getMoneyInCoinsInCash()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir les Pices de Monnaie en Caisse </button>
+        </form>
+          <p>Résultat des Pices de Monnaie en Caisse : {{ moneyInCoinsInCash  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
       <tr>
         <th>Total Numéraire</th>
-        <td>{{ currentTutorial.totalCash |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td><form (ngSubmit)="getTotalCash()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir le Total Numéraire </button>
+        </form>
+          <p>Résultat du Tota Numéraire : {{ totalCash  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
     </table>
@@ -129,7 +156,12 @@
       </tr>
       <tr>
         <th>Solde Final pour le CCP:</th>
-        <td>{{ currentTutorial.finalPostalAccount |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td><form (ngSubmit)="getFinalPostalAccount()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir le Compte Courant Postal Final </button>
+        </form>
+          <p>Résultat du Solde du Compte : {{ finalPostalAccount  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
       <tr>
@@ -147,19 +179,19 @@
     <table style="width:100%">
       <tr>
         <th><label>solde de journée:</label></th>
-        <td> {{ currentTutorial.dalyAccountBalance |  currency:"دت ":"symbol":'6.3-3'}}</td>
+        <td> <form (ngSubmit)="getDalyAccountBalance()">
+          <label for="date">Sélectionnez une date :</label>
+          <input type="text" name="date" [(ngModel)]="date" required>
+          <button type="submit">Obtenir le Solde du Compte </button>
+        </form>
+          <p>Résultat du Solde du Compte : {{ dalyAccountBalance  |  currency:"دت ":"symbol":'6.3-3'  }}</p></td>
 
       </tr>
 
     </table>
     </div>
 
-    <div>
-
-      {{ currentTutorial.published ? "Published" : "Pending" }}
-    </div>
-
-    <a
+   <a
       class="badge badge-warning"
       routerLink="/tutorials/{{ currentTutorial.id }}"
     >
@@ -186,16 +218,7 @@
           name="title"
         />
       </div>
-      <div class="form-group">
-        <label for="description">Déscription</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          [(ngModel)]="currentTutorial.description"
-          name="description"
-        />
-      </div>
+
 
       <div class="form-group">
         <label for="recipeToday">Recette Aujourd'hui</label>
@@ -204,6 +227,8 @@
           class="form-control"
           id="recipeToday"
           [(ngModel)]="currentTutorial.recipeToday"
+          maxlength="11"
+          minlength="5"
           name="recipeToday"
         />
       </div>
@@ -306,7 +331,7 @@
           name="otherValues"
         />
       </div>
-      statesRepartition
+
       <div class="form-group">
         <label for="statesRepartition">statesRepartition</label>
         <input
@@ -329,26 +354,10 @@
         />
       </div>
 
-      <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
-      </div>
+
     </form>
 
-    <button
-      class="badge badge-primary mr-2"
-      *ngIf="currentTutorial.published"
-      (click)="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button
-      *ngIf="!currentTutorial.published"
-      class="badge badge-primary mr-2"
-      (click)="updatePublished(true)"
-    >
-      Publish
-    </button>
+
 
     <button
       type="submit"

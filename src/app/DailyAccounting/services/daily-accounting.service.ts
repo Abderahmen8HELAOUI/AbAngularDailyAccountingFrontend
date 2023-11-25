@@ -41,8 +41,74 @@ export class DailyAccountingService {
     return this.http.get<DailyAccounting[]>(`${this.baseUrl}/tutorials?title=${title}`);
   }
 
+  getBalancePreviousMonth(){
+    const url = `${this.baseUrl}tutorials/balancePreviousMonth`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  getPostalCurrentAccount(){
+    const url = `${this.baseUrl}tutorials/postalCurrentAccount`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  getCreditExpected(){
+    const url = `${this.baseUrl}tutorials/creditExpected`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  getExpectedFlow(){
+    const url = `${this.baseUrl}tutorials/expectedFlow`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  getOtherValues(){
+    const url = `${this.baseUrl}tutorials/otherValues`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  getStatesRepartition(){
+    const url = `${this.baseUrl}tutorials/statesRepartition`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+//-------------------------------------
   getRecetteTotal(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/recette-total?date=${date}`;
+    const url = `${this.baseUrl}tutorials/recette-total?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -52,8 +118,10 @@ export class DailyAccountingService {
       );
   }
 
+
+///------------------------------------
   getTreasuryOperationsTotal(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/OperationsTreasury-total?date=${date}`;
+    const url = `${this.baseUrl}tutorials/OperationsTreasury-total?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -63,8 +131,19 @@ export class DailyAccountingService {
       );
   }
 
+  getTotalTreasuryOperationsLastDay(){
+    const url = `${this.baseUrl}tutorials/OperationsTreasuryTotalLastDay`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
+//-------------------------------------
   getRegulationOperationsTotal(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/OperationsRegulation-total?date=${date}`;
+    const url = `${this.baseUrl}tutorials/OperationsRegulation-total?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -73,9 +152,21 @@ export class DailyAccountingService {
         })
       );
   }
+  //
+  getTotalRegulationOperationsLastDay(){
+    const url = `${this.baseUrl}tutorials/OperationsRegulationsTotalDoubleLastRow`;
+    return this.http.get<number>(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur de parsing : ', error);
+          return throwError(error);
+        })
+      );
+  }
 
+//---------------------------------
   getTotalExpenses(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/totalExpenses?date=${date}`;
+    const url = `${this.baseUrl}tutorials/totalExpenses?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -85,8 +176,9 @@ export class DailyAccountingService {
       );
   }
 
+//-------------------------------------
   getDalyAccountBalance(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/dalyAccountBalance?date=${date}`;
+    const url = `${this.baseUrl}tutorials/dalyAccountBalance?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -96,8 +188,9 @@ export class DailyAccountingService {
       );
   }
 
+//-----------------------------------------
   getFinalPostalAccount(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/finalPostalAccount?date=${date}`;
+    const url = `${this.baseUrl}tutorials/finalPostalAccount?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -107,8 +200,9 @@ export class DailyAccountingService {
       );
   }
 
+//----------------------------
   getTotalCash(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/totalCash?date=${date}`;
+    const url = `${this.baseUrl}tutorials/totalCash?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -118,8 +212,9 @@ export class DailyAccountingService {
       );
   }
 
+ //-------------------------------------------
   getMoneyInCoinsInCash(date: string): Observable<any> {
-    const url = `${this.baseUrl}/tutorials/moneyInCoinsInCash?date=${date}`;
+    const url = `${this.baseUrl}tutorials/moneyInCoinsInCash?date=${date}`;
     return this.http.get<string>(url)
       .pipe(
         catchError((error: any) => {
@@ -128,4 +223,5 @@ export class DailyAccountingService {
         })
       );
   }
+
 }
